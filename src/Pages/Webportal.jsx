@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Webportal.css";
 import RightSidebar from "../Components/RightSidebar";
+import Form from "../Components/form";
 
 
 
@@ -12,7 +13,7 @@ const menuList = [
     name: "Book An Event",
     title: "Schedule your Event",
     completed: false,
-
+    child: <Form/>,
     visited: true,
   },
   {
@@ -43,6 +44,7 @@ function WebPortal() {
           name: obj.name,
           title: obj.title,
           completed: true,
+          child: obj.child,
           visited: true,
         };
       } else if (obj.index === currentPageIndex + 1) {
@@ -51,6 +53,7 @@ function WebPortal() {
           name: obj.name,
           title: obj.title,
           completed: obj.completed,
+          child: obj.child,
           visited: true,
         };
       }
@@ -84,6 +87,7 @@ function WebPortal() {
             />
           </div>
         </Container>
+        
       </div>
     </div>
   );
